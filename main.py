@@ -5,14 +5,14 @@ from datetime import datetime
 from script.extract import extraction
 from script.transform import data_transformation
 from script.load import load
-from dbutil.db import path
+from dbutil.db import source_path
 def main():
     '''This is the main function that orchestrates the ETL process for employee data.
     It calls the extraction, transformation, and loading functions in sequence,
     and includes error handling to log any issues that occur during the process.'''
     
     try:
-        df = extraction(path)
+        df = extraction(source_path)
         
         # Transform data
         transfromed_df = data_transformation(df)
